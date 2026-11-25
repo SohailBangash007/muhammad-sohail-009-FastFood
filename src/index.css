@@ -361,6 +361,28 @@ html[data-theme="dark"] {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
 }
 
+/* Quick-menu card image: perfectly centred on touch screens.
+   The playful left-to-right slide only runs where a real hover exists. */
+.mini-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mini-card-img {
+    left: -2rem;
+    width: calc(100% + 4rem);
+  }
+
+  .mini-card:hover .mini-card-img {
+    transform: translateX(2rem);
+  }
+}
+
 /* Hide scrollbar for horizontal chip row */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -409,7 +431,8 @@ html[data-theme="dark"] {
     animation: none;
   }
 
-  .mini-card .card-trace {
+  .mini-card .card-trace,
+  .mini-card-img {
     transition: none;
   }
 

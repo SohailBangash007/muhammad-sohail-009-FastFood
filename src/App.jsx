@@ -104,7 +104,7 @@ export default function App() {
 
       <Navbar />
 
-      <main key={location.pathname}>
+      <main key={location.pathname} className="overflow-x-clip">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

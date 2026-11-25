@@ -125,7 +125,7 @@ export default function Hero() {
         <span className="h-16 w-px bg-gradient-to-t from-transparent to-gold/60" />
       </div>
 
-      <div className="hero-content relative z-10 mx-auto w-full max-w-7xl px-5 pt-32 pb-28 sm:px-8">
+      <div className="hero-content relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-20 sm:px-8 sm:pt-32 sm:pb-28">
         <div className="hero-fade mb-5 flex items-center gap-3">
           <span className="h-px w-10 bg-gradient-to-r from-gold to-transparent" />
           <span className="text-[10px] font-bold tracking-[0.34em] text-gold/90 uppercase">
@@ -206,7 +206,7 @@ export default function Hero() {
         {/* ghost watermark — fully on-screen now, letter-by-letter reveal */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute top-16 left-0 -z-10 flex select-none font-serif text-[clamp(5rem,11vw,10rem)] leading-none font-bold whitespace-nowrap text-transparent opacity-50 uppercase [-webkit-text-stroke:1.5px_rgba(245,185,66,0.3)]"
+          className="pointer-events-none absolute top-16 left-0 -z-10 hidden select-none font-serif text-[clamp(5rem,11vw,10rem)] leading-none font-bold whitespace-nowrap text-transparent opacity-50 uppercase [-webkit-text-stroke:1.5px_rgba(245,185,66,0.3)] sm:flex"
         >
           {"M.Sohail".split('').map((letter, i) => (
             <span key={`${letter}-${i}`} className="hero-ghost-letter inline-block">
@@ -252,7 +252,7 @@ export default function Hero() {
           you crave. Fresh, halal and made to be shared.
         </p>
 
-        <div className="hero-fade mt-9 flex flex-wrap items-center gap-4">
+        <div className="hero-fade mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
           <Magnetic>
             <Link
               to="/menu"
@@ -282,7 +282,7 @@ export default function Hero() {
         </div>
 
         {/* stats — glass panel */}
-        <div className="hero-fade mt-12 inline-flex flex-wrap items-stretch rounded-3xl border border-gold/20 bg-gradient-to-r from-white/[0.06] via-white/[0.02] to-white/[0.06] p-1 shadow-[0_25px_60px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
+        <div className="hero-fade mt-10 inline-flex w-full flex-wrap items-stretch rounded-3xl border border-gold/20 bg-gradient-to-r from-white/[0.06] via-white/[0.02] to-white/[0.06] p-1 shadow-[0_25px_60px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl sm:mt-12 sm:w-auto">
           {[
             { to: 20, suffix: '+', label: 'Menu items' },
             { to: 4.9, decimals: 1, label: 'Average rating' },
@@ -291,7 +291,7 @@ export default function Hero() {
             <div
               key={label}
               style={{ animationDelay: `${0.9 + i * 0.14}s` }}
-              className={`hero-stat rounded-2xl px-7 py-5 transition-colors duration-300 hover:bg-white/[0.05] ${
+              className={`hero-stat flex-1 rounded-2xl px-4 py-4 transition-colors duration-300 hover:bg-white/[0.05] sm:flex-none sm:px-7 sm:py-5 ${
                 i > 0 ? 'border-t border-white/10 sm:border-t-0 sm:border-l' : ''
               }`}
             >

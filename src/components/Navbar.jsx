@@ -88,16 +88,20 @@ export default function Navbar() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${headerTone}`}>
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link to="/" className="group flex items-center gap-3 text-cream" onClick={closeSearch}>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-2 px-4 sm:px-8">
+        <Link
+          to="/"
+          className="group flex shrink-0 items-center gap-2.5 text-cream sm:gap-3"
+          onClick={closeSearch}
+        >
           <img
             src="/logo.svg"
             alt="M.Sohail Food House logo"
-            className="h-11 w-11 rounded-xl shadow-lg shadow-flame/30 ring-1 ring-white/20 transition-transform duration-500 group-hover:rotate-12"
+            className="h-10 w-10 rounded-xl shadow-lg shadow-flame/30 ring-1 ring-white/20 transition-transform duration-500 group-hover:rotate-12 sm:h-11 sm:w-11"
           />
           <span className="leading-none">
-            <span className="block text-xl font-extrabold tracking-tight">M.Sohail</span>
-            <span className="mt-1 block text-[9px] font-semibold tracking-[0.28em] text-muted">
+            <span className="block text-lg font-extrabold tracking-tight sm:text-xl">M.Sohail</span>
+            <span className="mt-1 hidden text-[9px] font-semibold tracking-[0.28em] text-muted sm:block">
               BURGERS · PIZZA
             </span>
           </span>
@@ -122,7 +126,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={() => {
@@ -132,7 +136,7 @@ export default function Navbar() {
             }}
             aria-label={searchOpen ? 'Close search' : 'Search the menu'}
             aria-expanded={searchOpen}
-            className={`flex h-11 w-11 items-center justify-center rounded-full border text-cream transition-all duration-300 hover:-translate-y-0.5 ${
+            className={`flex h-10 w-10 items-center justify-center rounded-full border text-cream transition-all duration-300 hover:-translate-y-0.5 sm:h-11 sm:w-11 ${
               searchOpen
                 ? 'border-flame text-flame'
                 : 'border-white/15 hover:border-flame hover:text-flame'
@@ -145,7 +149,7 @@ export default function Navbar() {
             type="button"
             onClick={toggle}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-cream transition-all duration-300 hover:-translate-y-0.5 hover:border-flame hover:text-flame"
+            className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/15 text-cream transition-all duration-300 hover:-translate-y-0.5 hover:border-flame hover:text-flame sm:flex sm:h-11 sm:w-11"
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -165,7 +169,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setIsOpen(true)}
             aria-label="Open cart"
-            className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-cream transition-colors hover:border-flame hover:text-flame"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-cream transition-colors hover:border-flame hover:text-flame sm:h-11 sm:w-11"
           >
             <ShoppingBag size={19} />
             <AnimatePresence>
@@ -199,7 +203,7 @@ export default function Navbar() {
               setSearchOpen(false)
               setOpen((value) => !value)
             }}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 sm:h-11 sm:w-11 lg:hidden"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -322,6 +326,24 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              {/* theme toggle lives inside the menu on phones so the bar stays roomy */}
+              <button
+                type="button"
+                onClick={toggle}
+                className="flex items-center justify-between border-b border-white/5 py-4 text-lg font-medium text-cream/80"
+              >
+                <span className="inline-flex items-center gap-3">
+                  {theme === 'dark' ? (
+                    <Sun size={19} className="text-flame" />
+                  ) : (
+                    <Moon size={19} className="text-flame" />
+                  )}
+                  {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                </span>
+                <span className="text-[10px] font-bold tracking-[0.2em] text-muted uppercase">
+                  Theme
+                </span>
+              </button>
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}

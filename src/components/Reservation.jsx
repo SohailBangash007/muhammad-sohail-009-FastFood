@@ -95,7 +95,7 @@ export default function Reservation() {
   useRoundedScroll(root, '.booking-panel', { from: 64, to: 40, start: 'top 92%', end: 'top 35%' })
 
   return (
-    <section id="contact" ref={root} className="relative scroll-mt-20 py-28 lg:py-36">
+    <section id="contact" ref={root} className="relative scroll-mt-20 overflow-x-clip py-28 lg:py-36">
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-25" />
       <div className="pointer-events-none absolute -top-20 right-[8%] -z-10 h-72 w-72 rounded-full bg-gold/[0.07] blur-3xl" />
 
@@ -178,7 +178,7 @@ export default function Reservation() {
                 className="absolute -top-12 -left-10 z-20 hidden text-gold sm:grid"
               />
 
-              <div className="booking-panel force-dark royal-frame relative overflow-hidden rounded-[2.5rem] bg-charcoal/85 p-7 shadow-2xl backdrop-blur-xl sm:p-11">
+              <div className="booking-panel force-dark royal-frame relative overflow-hidden rounded-[2.5rem] bg-charcoal/85 p-6 shadow-2xl backdrop-blur-xl sm:p-11">
                 <Corner className="top-4 left-4" />
                 <Corner className="top-4 right-4 rotate-90" />
                 <Corner className="right-4 bottom-4 rotate-180" />

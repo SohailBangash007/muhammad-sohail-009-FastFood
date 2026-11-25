@@ -68,21 +68,17 @@ function MiniCard({ item, index }) {
         tiltProps.onPointerLeave()
         glowProps.onPointerLeave()
       }}
-      className="mini-card group relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-charcoal/60 p-2.5 shadow-lg shadow-black/20 transition-colors duration-500 hover:border-gold/60"
+      className="mini-card group relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-charcoal/60 p-2 shadow-lg shadow-black/20 transition-colors duration-500 hover:border-gold/60 sm:p-2.5"
     >
       <motion.div aria-hidden="true" style={glowStyle} className="pointer-events-none absolute inset-0 z-20" />
 
       {/* compact food image */}
       <Link
         to={`/product/${item.id}`}
-        className="relative block h-32 overflow-hidden rounded-[1rem] sm:h-36"
+        className="relative block h-40 overflow-hidden rounded-[1rem] min-[380px]:h-36"
         aria-label={`View ${item.name}`}
       >
-        <SmartImage
-          src={item.image}
-          alt={item.name}
-          imgClass="absolute -left-8 h-full w-[calc(100%+4rem)] object-cover transition-transform duration-[900ms] ease-out group-hover:translate-x-8"
-        />
+        <SmartImage src={item.image} alt={item.name} imgClass="mini-card-img" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
         {/* one-shot foil pass on hover */}
         <span className="foil-once pointer-events-none absolute inset-y-0 -left-1/2 z-10 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
@@ -106,7 +102,7 @@ function MiniCard({ item, index }) {
       {/* small details */}
       <div className="relative z-10 px-1.5 pt-3 pb-1">
         <p className="text-[9px] font-bold tracking-[0.18em] text-gold uppercase">{item.category}</p>
-        <h3 className="mt-1 truncate font-serif text-base leading-tight font-semibold transition-colors duration-300 group-hover:text-gold">
+        <h3 className="mt-1 line-clamp-2 min-h-[2.4rem] font-serif text-[1.05rem] leading-tight font-semibold transition-colors duration-300 group-hover:text-gold sm:text-base sm:min-h-0">
           {item.name}
         </h3>
 
@@ -214,7 +210,7 @@ export default function FoodCardsPage() {
                 <div className="premium-orbit orbit-spin pointer-events-none absolute inset-[-160%]" />
 
                 {/* inner surface */}
-                <div className="premium-panel relative overflow-hidden rounded-[2.48rem] border border-white/10 bg-ink/90 px-4 py-7 sm:px-8 sm:py-9">
+                <div className="premium-panel relative overflow-hidden rounded-[2.48rem] border border-white/10 bg-ink/90 px-3 py-6 sm:px-8 sm:py-9">
                   {/* texture, ambient light and top gold line */}
                   <div className="bg-grid pointer-events-none absolute inset-0 opacity-[0.14]" />
                   <div className="animate-drift-x pointer-events-none absolute -top-24 left-6 h-56 w-56 rounded-full bg-flame/10 blur-3xl" />
@@ -325,7 +321,7 @@ export default function FoodCardsPage() {
                   {/* the small animated cards — all inside this parent */}
                   <motion.div
                     layout
-                    className="relative z-10 mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5"
+                    className="relative z-10 mt-6 grid grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5"
                     initial="hidden"
                     animate="show"
                     variants={{ hidden: {}, show: { transition: { staggerChildren: 0.055, delayChildren: 0.1 } } }}
